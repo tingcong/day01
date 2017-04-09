@@ -1,7 +1,9 @@
 package com.page.utils;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.page.entity.Employee;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import javax.sql.DataSource;
 
