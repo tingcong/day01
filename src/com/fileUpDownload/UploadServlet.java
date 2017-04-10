@@ -16,6 +16,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +27,7 @@ import java.util.List;
 /**
  * Created by htc on 2017/4/10.
  */
+@WebServlet("/fileUpDownload/UploadServlet.htm")
 public class UploadServlet extends HttpServlet {
 
     //upload目录，保存上传的资源
@@ -79,7 +81,7 @@ public class UploadServlet extends HttpServlet {
                         name=id+"#"+name;
 
                         //获取上传基本路径
-                        String path=getServletContext().getRealPath("/upload");
+                        String path=getServletContext().getRealPath("/static/upload");
                         //创建目标文件
                         File file=new File(path,name);
 
@@ -95,6 +97,33 @@ public class UploadServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    //手动实现过程
+    private void upload(HttpServletRequest request) throws IOException,UnsupportedEncodingException{
+        /*
+		request.getParameter(""); // GET/POST
+		request.getQueryString(); // 获取GET提交的数据
+		request.getInputStream(); // 获取post提交的数据   */
+
+        /***********手动获取文件上传表单数据************/
+
+        //1. 获取表单数据流
+        InputStream in=request.getInputStream();
+        //2.转换流
+        InputStreamReader inputStream=new InputStreamReader(in,"UTF-8");
+        //3.缓冲流
+        BufferedReader reader=new BufferedReader(inputStream);
+        //输出数据
+        String str=null;
+        while((str=reader.readLine())!=null){
+            System.out.println(str);
+        }
+        //关闭
+        reader.close();
+        inputStream.close();;
+        in.close();
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
