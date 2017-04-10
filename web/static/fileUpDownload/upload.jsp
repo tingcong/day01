@@ -11,11 +11,13 @@
   </head>
   
   <body>	
-  	 <form name="frm_test" action="${pageContext.request.contextPath }/upload" method="post" enctype="multipart/form-data">
+  	 <form name="frm_test" action="${pageContext.request.contextPath }/fileServlet?method=upload" method="post" enctype="multipart/form-data">
+  	 	 <%--<input type="hidden" name="method" value="upload">--%>
+  	 	 
   	 	 用户名：<input type="text" name="userName">  <br/>
   	 	文件：   <input type="file" name="file_img">   <br/>
   	 	
-  	 	<input type="submit" value="注册">
+  	 	<input type="submit" value="提交">
    	 </form>
   </body>
 </html>

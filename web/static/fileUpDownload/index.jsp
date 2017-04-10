@@ -11,6 +11,8 @@
   </head>
   
   <body>	
+  		<a href="${pageContext.request.contextPath }/upload.jsp">文件上传</a> &nbsp;&nbsp;&nbsp;
+  		<a href="${pageContext.request.contextPath }/fileServlet?method=downList">文件下载</a> 
   		
   </body>
 </html>
