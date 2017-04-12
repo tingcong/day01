@@ -1,0 +1,39 @@
+手动实现AOP编程
+AOP 面向切面的编程，
+	AOP可以实现“业务代码”与“关注点代码”分离
+
+// 保存一个用户
+public void add(User user) {
+		Session session = null;
+		Transaction trans = null;
+		try {
+			session = HibernateSessionFactoryUtils.getSession();   // 【关注点代码】
+			trans = session.beginTransaction();    // 【关注点代码】
+
+			session.save(user);     // 核心业务代码
+
+			trans.commit();     //…【关注点代码】
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(trans != null){
+				trans.rollback();   //..【关注点代码】
+
+			}
+		} finally{
+			HibernateSessionFactoryUtils.closeSession(session);   ////..【关注点代码】
+
+		}
+   }
+
+
+分析总结：
+	关注点代码，就是指重复执行的代码。
+	业务代码与关注点代码分离，好处？
+	   -- 关注点代码写一次即可；
+		-开发者只需要关注核心业务；
+		-运行时期，执行核心业务代码时候动态植入关注点代码； 【代理】
+
+
+如何分离？
+	过程式/对象式/代理模式分离
