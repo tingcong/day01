@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="spring-jdbc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring_jar(ok)/spring-jdbc/c3p0-0.9.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring_jar(ok)/spring-jdbc/mysql-connector-java-5.1.12-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring_jar(ok)/spring-jdbc/spring-jdbc-3.2.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring_jar(ok)/spring-jdbc/spring-tx-3.2.5.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

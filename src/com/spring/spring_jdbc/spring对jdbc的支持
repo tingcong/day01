@@ -1,0 +1,7 @@
+4. Spring对jdbc支持
+
+使用步骤：
+	1）引入jar文件
+spring-jdbc-3.2.5.RELEASE.jar
+spring-tx-3.2.5.RELEASE.jar
+	2） 优化

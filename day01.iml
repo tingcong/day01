@@ -279,5 +279,15 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="spring-aop" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/spring/spring-core/spring-core-3.2.5.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="spring-jdbc" level="project" />
   </component>
 </module>
