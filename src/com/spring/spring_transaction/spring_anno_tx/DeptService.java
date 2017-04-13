@@ -25,9 +25,10 @@ public class DeptService {
     @Transactional(
             readOnly = false,  // 读写事务
             timeout = -1,       // 事务的超时时间不限制
-            //noRollbackFor = ArithmeticException.class,  // 遇到数学异常不回滚
+            noRollbackFor= ArithmeticException.class,  // 遇到数学异常不回滚
             isolation = Isolation.DEFAULT,              // 事务的隔离级别，数据库的默认
             propagation = Propagation.REQUIRED			// 事务的传播行为;指定当前的方法必须在事务的环境下执行； 如果当前运行的方法，已经存在事务， 就会加入当前的事务；
+                        //Propagation.REQUIRED_NEW    //指定当前的方法必须在事务的环境下执行； 如果当前运行的方法，已经存在事务：  事务会挂起； 会始终开启一个新的事务，执行完后；  刚才挂起的事务才继续运行。
     )
     public void save(Dept dept){
         logDao.insertLog();  // 保存日志  【自己开启一个事务】

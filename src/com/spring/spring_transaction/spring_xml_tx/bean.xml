@@ -52,12 +52,14 @@
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
 			<tx:method name="*" read-only="false"/>
+			<!--<tx:method name="get*" read-only="true"/>-->
 		</tx:attributes>
 	</tx:advice>
 	
 	<!-- 5.3 Aop配置： 拦截哪些方法(切入点表表达式) + 应用上面的事务增强配置 -->
 	<aop:config>
 		<aop:pointcut expression="execution(* com.spring.spring_transaction.spring_xml_tx.DeptService.save(..))" id="pt"/>
+		<!--应用事务增强 txAdvice-->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>
 	</aop:config>
 	
