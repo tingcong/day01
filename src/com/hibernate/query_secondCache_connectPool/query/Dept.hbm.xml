@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.query_secondCache_connectPool.query">
+    <class name="Dept" table="t_dept">
+        <id name="deptId">
+            <generator class="native"></generator>
+        </id>
+        <property name="deptName"></property>
+        <set name="emps">
+            <key column="dept_id"></key>
+            <one-to-many class="Employee"></one-to-many>
+        </set>
+    </class>
+
+    <!-- 存放sql语句 -->
+    <query name="getAllDept">
+        <![CDATA[
+			from Dept d where deptId < ?
+		]]>
+    </query>
+</hibernate-mapping>
